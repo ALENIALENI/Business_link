@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #555;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input,
+        textarea,
+        select {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Navigation Styles */
+        header {
+            background-color: #f4f4f4;
+            padding: 10px 0;
+            height: 36px;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        .nav-list {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+        }
+
+        .nav-list li {
+            display: inline-block;
+            margin-right: 20px;
+            position: relative;
+
+        }
+
+        .nav-list a {
+            color: rgb(51, 50, 50);
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .nav-list a:hover {
+            box-shadow: 0 0 2px rgb(21, 21, 21);
+            transition: 0.36s;
+        }
+
+        /* Dropdown Styles */
+        .courses-menu .dropdown {
+            position: absolute;
+            top: 100%;
+            left: -13px;
+            background-color: #a19f9f;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            transform: rotateX(90deg);
+            transform-origin: top;
+            transition: transform 0.3s ease;
+            visibility: hidden;
+            opacity: 0;
+            border-radius: 5px;
+            width: 130px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .courses-menu:hover .dropdown {
+            transform: rotateX(0deg);
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .courses-menu .dropdown li {
+            width: 130px;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+
+        .courses-menu .dropdown a {
+            padding: 10px 20px;
+            color: #161719;
+            text-decoration: none;
+            display: block;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+        }
+
+        .courses-menu .dropdown a:hover {
+            box-shadow: 0 0 2px rgb(21, 21, 21);
+            transition: 0.36s
+        }
+
+        .btn {
+            display: inline;
+        }
+
+        .btn input {
+            margin: 15px;
+            width: 100px;
+        }
+
+        span {
+            margin-top: 0;
+            margin-bottom: 20px;
+
+        }
+    </style>
+    <script>
+        function validateForm() {
+            // Get form values
+            const firstName = document.getElementById('first_name').value.trim();
+            const middleName = document.getElementById('middle_name').value.trim();
+            const surname = document.getElementById('surname').value.trim();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const mobile = document.getElementById('mobile').value.trim();
+            const facebook = document.getElementById('facebook').value.trim();
+            const twitter = document.getElementById('twitter').value.trim();
+            const instagram = document.getElementById('instagram').value.trim();
+            const usercv = document.getElementById('cv').files.length;
+            let formValid = true;
+
+            // Patterns for validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const mobilePattern = /^[0-9]{10,15}$/; // Example pattern for mobile number validation
+
+
+            // Clear previous error messages
+            clearErrorMessages();
+
+            // Validate First Name
+            if (firstName === "") {
+                document.getElementById("error-first-name").innerText = "First Name is required.";
+                formValid = false;
+            }
+
+            // Validate Surname
+            if (surname === "") {
+                document.getElementById("error-surname").innerText = "Surname is required.";
+                formValid = false;
+            }
+            if (middleName === "") {
+                document.getElementById("error-middlename").innerText = "middle name is required.";
+                formValid = false;
+            }
+
+            // Validate Username
+            if (username === "") {
+                document.getElementById("error-username").innerText = "Username is required.";
+                formValid = false;
+            }
+
+            // Validate Password
+            if (password === "") {
+                document.getElementById("error-password").innerText = "Password is required.";
+                formValid = false;
+            }
+            else if (password.length < 8) {
+                document.getElementById("error-password").innerText = "Password must be at least 8 characters long.";
+                formValid = false;
+            }
+
+            // Validate Email
+            if (email === "") {
+                document.getElementById("error-email").innerText = "Email is required.";
+                formValid = false;
+            } else if (!emailPattern.test(email)) {
+                document.getElementById("error-email").innerText = "Please enter a valid email address.";
+                formValid = false;
+            }
+
+            // Validate Mobile Number
+            if (mobile === "") {
+                document.getElementById("error-mobile").innerText = "Mobile Number is required.";
+                formValid = false;
+            } else if (!mobilePattern.test(mobile)) {
+                document.getElementById("error-mobile").innerText = "Please enter a valid mobile number.";
+                formValid = false;
+            }
+            if (usercv === 0) {
+                document.getElementById("error-cv").innerText = "You must upload your CV!";
+                formValid = false;
+            }
+
+            return formValid;
+        }
+
+        function clearErrorMessages() {
+            document.getElementById("error-first-name").innerText = "";
+            document.getElementById("error-surname").innerText = "";
+            document.getElementById("error-username").innerText = "";
+            document.getElementById("error-password").innerText = "";
+            document.getElementById("error-email").innerText = "";
+            document.getElementById("error-mobile").innerText = "";
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputs = document.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('focus', (event) => {
+                    const errorSpan = document.getElementById(`error-${input.id}`);
+                    if (errorSpan) {
+                        errorSpan.innerText = '';
+                    }
+                });
+            });
+
+            // Add form submit event listener
+            document.querySelector('form').addEventListener('submit', function (event) {
+                if (!validateForm()) {
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Register.html">Register</a></li>
+                <li><a href="About.html">About Me</a></li>
+                <li class="courses-menu">
+                    <a href="#">Courses</a>
+                    <ul class="dropdown">
+                        <li><a href="adminlogin.php">Register</a></li>
+                        <li><a href="login_user.php">Preview</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="Cv.html">CV</a></li>
+                <li><a href="Contacts.html">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Registration Form</h1>
+        <form action="register_user.php" method="post" enctype="multipart/form-data">
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name">
+            <span id="error-first-name" style="color:red"></span>
+
+            <label for="middle_name">Middle Name:</label>
+            <input type="text" id="middle_name" name="middle_name">
+            <span id="error-middlename" style="color: red;"></span>
+            <label for="surname">Surname:</label>
+            <input type="text" id="surname" name="surname">
+            <span id="error-surname" style="color:red"></span>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            <span id="error-username" style="color:red"></span>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <span id="error-password" style="color:red"></span>
+
+            <label for="cv">CV (PDF only):</label>
+            <input type="file" id="cv" name="cv" accept="application/pdf">
+            <span id="error-cv" style="color: red;"></span>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <span id="error-email" style="color:red"></span>
+
+            <label for="mobile">Mobile Number:</label>
+            <input type="tel" id="mobile" name="mobile">
+            <span id="error-mobile" style="color:red"></span>
+
+            <label for="facebook">Facebook:</label>
+            <input type="text" id="facebook" name="facebook">
+
+            <label for="twitter">Twitter:</label>
+            <input type="text" id="twitter" name="twitter">
+
+            <label for="instagram">Instagram:</label>
+            <input type="text" id="instagram" name="instagram">
+
+            <div class="btn">
+                <input type="submit" value="Submit">
+                <input type="reset" value="clear">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

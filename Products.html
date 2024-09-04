@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .gallery-item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            max-width: 300px;
+            text-align: center;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .gallery-item a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            display: block;
+            padding: 10px;
+            background: #ddd;
+        }
+    </style>
+</head>
+<body style="background-image: url(smart1.PNG);">
+    <div class="container">
+        <h1>Our Products</h1>
+        <div class="gallery">
+            <!-- Product 1 -->
+            <div class="gallery-item">
+                <a href="https://www.example.com">
+                    <img src="zote.png" alt="Calculator" style="width: 300px; height: 500px;">
+                </a>
+                <p>Calculator</p>
+                </a>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="gallery-item">
+                <a href="https://www.example.com">
+                    <img src="smart.png" alt="Calculator" style="width: 300px; height: 500px;">
+                </a>
+                <p>Smart watches</p>
+                </a>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="gallery-item">
+                <a href="https://www.example.com">
+                    <img src="pods1.jpg" alt="Calculator" style="width: 300px; height: 500px;">
+                </a>
+                    <p>Earpods</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

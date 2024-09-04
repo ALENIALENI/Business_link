@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initia">
+    <title>MODERNGEAR</title>
+    <style>
+        body {
+            margin: opx;
+        }
+
+        main {
+            background-image: url("image/rick.JPG");
+            margin-left: auto;
+            margin-right: auto;
+            width: 600px;
+            text-align: justify;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        /* Navigation Styles */
+        header {
+            background-color: rgb(207, 221, 216);
+            padding: 10px 0;
+            height: 36px;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        .nav-list {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+        }
+
+        .nav-list li {
+            display: inline-block;
+            margin-right: 20px;
+            position: relative;
+
+        }
+
+        .nav-list a {
+            color: #161719;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            font-family: sans-serif;
+        }
+
+        .nav-list a:hover {
+            box-shadow: 0 0 2px rgb(21, 21, 21);
+            transition: 0.36s;
+        }
+
+        /* Dropdown Styles */
+        .courses-menu .dropdown {
+            position: absolute;
+            top: 100%;
+            left: -13px;
+            background-color: #b66565;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            transform: rotateX(90deg);
+            transform-origin: top;
+            transition: transform 0.3s ease;
+            visibility: hidden;
+            opacity: 0;
+            border-radius: 5px;
+            width: 130px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .courses-menu:hover .dropdown {
+            transform: rotateX(0deg);
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .courses-menu .dropdown li {
+            width: 130px;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+
+        .courses-menu .dropdown a {
+            padding: 10px 20px;
+            color: #161719;
+            text-decoration: none;
+            display: block;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+        }
+
+        .courses-menu .dropdown a:hover {
+            box-shadow: 0 0 2px rgb(21, 21, 21);
+            transition: 0.36s;
+        }
+    </style>
+</head>
+
+<body style="background-image: url(caluu.PNG);">
+    <h1>MODERNGEAR</h1>
+
+
+    <header>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li class="courses-menu">
+                    <a href="#">Products</a>
+                    <ul class="dropdown">
+                        <li><a href="adminlogin.php">Register</a></li>
+                        <li><a href="Products.html">Preview</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="Contacts.html">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+       <p>Karibu kwa uhitaji wa bidhaa bora na imara</p>
+        <p><h1>Thank you for choosing us!</h1></p>
+    </main>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Information Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input,
+        textarea,
+        select {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Navigation Styles */
+        header {
+            background-color: #f4f4f4;
+            padding: 10px 0;
+            height: 36px;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        .nav-list {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+        }
+
+        .nav-list li {
+            display: inline-block;
+            margin-right: 20px;
+            position: relative;
+
+        }
+
+        .nav-list a {
+            color: rgb(51, 50, 50);
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .nav-list a:hover {
+            box-shadow: 0 0 2px rgb(21, 21, 21);
+            transition: 0.36s;
+        }
+
+        /* Dropdown Styles */
+        .courses-menu .dropdown {
+            position: absolute;
+            top: 100%;
+            left: -13px;
+            background-color: #a19f9f;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            transform: rotateX(90deg);
+            transform-origin: top;
+            transition: transform 0.3s ease;
+            visibility: hidden;
+            opacity: 0;
+            border-radius: 5px;
+            width: 130px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .courses-menu:hover .dropdown {
+            transform: rotateX(0deg);
+            visibility: visible;
+            opacity: 1;
+
+        }
+
+        .courses-menu .dropdown li {
+            width: 130px;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+
+        .courses-menu .dropdown a {
+            padding: 10px 20px;
+            color: #161719;
+            text-decoration: none;
+            display: block;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+        }
+
+        .courses-menu .dropdown a:hover {
+            box-shadow: 0 0 2px rgb(21, 21, 21);
+            transition: 0.36s
+        }
+
+        .btn {
+            display: inline;
+        }
+
+        .btn input {
+            margin: 15px;
+            width: 100px;
+        }
+    </style>
+    <script>
+        function validateCourseForm() {
+            // Get form values
+            const courseName = document.getElementById('course_name').value.trim();
+            const courseCode = document.getElementById('course_code').value.trim();
+            const courseDescription = document.getElementById('course_description').value.trim();
+            const department = document.getElementById('department').value.trim();
+            const semester = document.getElementById('semester').value.trim();
+            const academicYear = document.getElementById('academic_year').value.trim();
+            const instructor = document.getElementById('instructor').value.trim();
+            const grade = document.getElementById('grade').value.trim();
+
+            let formValid = true;
+
+            // Clear previous error messages
+            clearCourseFormErrorMessages();
+
+            // Validate Course Name
+            if (courseName === "") {
+                document.getElementById("error-course_name").innerText = "Course Name is required.";
+                formValid = false;
+            }
+
+            // Validate Course Code
+            if (courseCode === "") {
+                document.getElementById("error-course_code").innerText = "Course Code is required.";
+                formValid = false;
+            }
+
+            // Validate Course Description
+            if (courseDescription === "") {
+                document.getElementById("error-course_description").innerText = "Course Description is required.";
+                formValid = false;
+            }
+
+            // Validate Department
+            if (department === "") {
+                document.getElementById("error-department").innerText = "Offering Department is required.";
+                formValid = false;
+            }
+
+            // Validate Semester
+            if (semester === "") {
+                document.getElementById("error-semester").innerText = "Semester is required.";
+                formValid = false;
+            }
+
+            // Validate Academic Year
+            if (academicYear === "") {
+                document.getElementById("error-academic_year").innerText = "Academic Year is required.";
+                formValid = false;
+            }
+
+            // Validate Instructor
+            if (instructor === "") {
+                document.getElementById("error-instructor").innerText = "Course Instructor is required.";
+                formValid = false;
+            }
+
+            // Validate Grade
+            if (grade === "") {
+                document.getElementById("error-grade").innerText = "Grade is required.";
+                formValid = false;
+            }
+
+            return formValid;
+        }
+
+        function clearCourseFormErrorMessages() {
+            document.getElementById("error-course_name").innerText = "";
+            document.getElementById("error-course_code").innerText = "";
+            document.getElementById("error-course_description").innerText = "";
+            document.getElementById("error-department").innerText = "";
+            document.getElementById("error-semester").innerText = "";
+            document.getElementById("error-academic_year").innerText = "";
+            document.getElementById("error-instructor").innerText = "";
+            document.getElementById("error-grade").innerText = "";
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputs = document.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('focus', (event) => {
+                    const errorSpan = document.getElementById(`error-${input.id}`);
+                    if (errorSpan) {
+                        errorSpan.innerText = '';
+                    }
+                });
+            });
+
+            // Add form submit event listener
+            document.querySelector('form').addEventListener('submit', function (event) {
+                if (!validateCourseForm()) {
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About Us</a></li>
+
+                <li class="courses-menu">
+                    <a href="#">Product</a>
+                    <ul class="dropdown">
+                        <li><a href="adminlogin.php">Register</a></li>
+                        <li><a href="Products.html">Products</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="Contacts.html">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Course Information Form</h1>
+        <form action="submit_course.php" method="post" onsubmit="return validateCourseForm()">
+            <label for="course_name">Course Name:</label>
+            <input type="text" id="course_name" name="course_name">
+            <span id="error-course_name" style="color:red;"></span>
+
+            <label for="course_code">Course Code:</label>
+            <input type="text" id="course_code" name="course_code">
+            <span id="error-course_code" style="color:red;"></span>
+
+            <label for="course_description">Brief Course Description:</label>
+            <textarea id="course_description" name="course_description" rows="4"></textarea>
+            <span id="error-course_description" style="color:red;"></span>
+
+            <label for="department">Offering Department:</label>
+            <input type="text" id="department" name="department">
+            <span id="error-department" style="color:red;"></span>
+
+            <label for="semester">Semester:</label>
+            <input type="text" id="semester" name="semester">
+            <span id="error-semester" style="color:red;"></span>
+
+            <label for="academic_year">Academic Year:</label>
+            <input type="text" id="academic_year" name="academic_year">
+            <span id="error-academic_year" style="color:red;"></span>
+
+            <label for="instructor">Course Instructor:</label>
+            <input type="text" id="instructor" name="instructor">
+            <span id="error-instructor" style="color:red;"></span>
+
+            <label for="grade">Grade:</label>
+            <input type="text" id="grade" name="grade">
+            <span id="error-grade" style="color:red;"></span>
+
+            <div class="btn">
+                <input type="submit" value="Submit">
+                <input type="reset" value="clear">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

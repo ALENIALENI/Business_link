@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .contact-section,
+        .email-section,
+        .social-media-section {
+            margin-bottom: 20px;
+        }
+
+        .contact-section ul,
+        .email-section ul,
+        .social-media-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-section li,
+        .email-section li,
+        .social-media-section li {
+            margin-bottom: 10px;
+        }
+
+        .contact-section h2,
+        .email-section h2,
+        .social-media-section h2 {
+            color: #007BFF;
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 5px;
+        }
+
+        .social-media-section a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        .social-media-section a:hover {
+            color: #0056b3;
+        }
+
+        /* Navigation Styles */
+        header {
+            background-color: #f4f4f4;
+            padding: 10px 0;
+            height: 36px;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        .nav-list {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+        }
+
+        .nav-list li {
+            display: inline-block;
+            margin-right: 20px;
+            position: relative;
+
+        }
+
+        .nav-list a {
+            color: rgb(51, 50, 50);
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .nav-list a:hover {
+            box-shadow: 0 0 2px rgb(21, 21, 21);
+            transition: 0.36s;
+        }
+
+        /* Dropdown Styles */
+        .courses-menu .dropdown {
+            position: absolute;
+            top: 100%;
+            left: -13px;
+            background-color: #a19f9f;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            transform: rotateX(90deg);
+            transform-origin: top;
+            transition: transform 0.3s ease;
+            visibility: hidden;
+            opacity: 0;
+            border-radius: 5px;
+            width: 130px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .courses-menu:hover .dropdown {
+            transform: rotateX(0deg);
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .courses-menu .dropdown li {
+            width: 130px;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+
+        .courses-menu .dropdown a {
+            padding: 10px 20px;
+            color: #161719;
+            text-decoration: none;
+            display: block;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+        }
+
+        .courses-menu .dropdown a:hover {
+            box-shadow: 0 0 2px rgb(21, 21, 21);
+            transition: 0.36s
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li class="courses-menu">
+                    <a href="#">Products</a>
+                    <ul class="dropdown">
+                        <li><a href="adminlogin.php">Register</a></li>
+                        <li><a href="Products.html">Products</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="Contacts.html">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Contact Information</h1>
+
+        <div class="contact-section">
+            <h2>Contacts</h2>
+            <ul>
+                <li>Phone: +255 783 160 500</li>
+                <li>Address: 100 Magomeni, Dar es Salaam, Tanzania</li>
+            </ul>
+        </div>
+
+        <div class="email-section">
+            <h2>Email Addresses</h2>
+            <ul>
+                <li>Personal: 1310aleni@egmail.com</li>
+                <li>Work: Udsm@gmail.com</li>
+            </ul>
+        </div>
+
+        <div class="social-media-section">
+            <h2>Social Media</h2>
+            <ul>
+                <li><a href="https://www.facebook.com/yourprofile" target="_blank">Facebook</a></li>
+                <li><a href="https://www.twitter.com/yourprofile" target="_blank">Twitter</a></li>
+                <li><a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+                <li><a href="https://www.instagram.com/yourprofile" target="_blank">Instagram</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
